@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>Blog Search</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+.cancelbtn {
+    background-color: gray;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 19.5%;
+    opacity: 0.9;
+}
+</style>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  {% if user.image %}
+  <img src="{{user.image.url}}" style="width:100%">
+  {% endif %}
+ 
+  <a href="{% url 'index' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>Home</p>
+  </a>
+  <a href="{% url 'profile' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>Profile</p>
+  </a>
+  <a href="{% url 'archivelist' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-archive w3-xxlarge"></i>
+    <p>Archive</p>
+  </a>
+  <a href="{% url 'accountsettings' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-cog w3-xxlarge"></i>
+    <p>SETTINGS</p>
+  </a>
+  <a href="{% url 'welcome' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-arrow-left w3-xxlarge"></i>
+    <p></p>
+  </a>
+</nav>
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+ 
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h1 class="w3-text-light-grey">Search Post</h1>
+    <hr style="width:200px" class="w3-opacity">
+    <div class = "col">
+      <div class = "col">
+    <form action="{% url 'search' %}" method = "GET">
+ 
+ <input type="text" name="q" >
+ <input type="submit" value="Search">   
+</form><p></p>
+ <div class="w3-container w3-white" >
+                <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border w3-border-black">
+        <p>You searched for: <strong>{{ query }}</strong></p>
+    </div></div>
+   
+        {% if posts %}           
+            <p>Found {{ posts|length }} posts{{ post|pluralize }}.</p>
+                           
+                {% for post in posts %}   
+                <div class="w3-container w3-white" >
+                <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border w3-border-black"> 
+                <p>Title:</p> 
+                <b><a href="{% url 'search_result' post.id %}">{{ post.title }}</a></b></li>  
+                <p><a>{{ post.date }}</a></p>
+                <p><a>{{ post.time }}</a></p>
+                <p><a>{{ post.description }}</a></p>                      
+                {% endfor %}   
+                <div>
+        <button type="button" onclick="window.location.href='{% url 'index' %}'" class="cancelbtn" >Close</button>
+</div>        
+                 
+        {% else %}           
+            <p>No posts matched your search criteria.</p>   
+            <button type="button" onclick="window.location.href='{% url 'index' %}'" >Close</button>    
+        {% endif %}     
+    </div></div>
+   
+  </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>BLOGSPOT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+.cancelbtn {
+    background-color: gray;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 19.5%;
+    opacity: 0.9;
+}
+</style>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  {% if user.image %}
+  <img src="{{user.image.url}}" style="width:100%">
+  {% endif %} 
+ 
+  <a href="{% url 'index' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>Home</p>
+  </a>
+  <a href="{% url 'profile' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>Profile</p>
+  </a>
+  <a href="{% url 'archivelist' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-archive w3-xxlarge"></i>
+    <p>Archive</p>
+  </a>
+  <a href="{% url 'accountsettings' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-cog w3-xxlarge"></i>
+    <p>SETTINGS</p>
+  </a>
+  <a href="{% url 'welcome' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-arrow-left w3-xxlarge"></i>
+    <p></p>
+  </a>
+</nav>
+
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+
+ 
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h1 class="w3-text-light-grey">All Posts</h1>
+    <hr style="width:200px" class="w3-opacity">
+    <div class = "col">
+      <form action="{% url 'search' %}" method = "GET">
+ 
+ <input type="text" name="q" >
+ <input type="submit" value="Search">   
+</form><p></p>
+
+ 
+
+    <form method = "POST" action=" ">
+      {% csrf_token %}
+      
+         {% for post in posts %}
+          <div class="w3-container w3-white" >
+          <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border w3-border-black">
+          <h2><b>{{post.title}}</b></h2>
+          <a href="#">{{post.author}}</a>
+          <p>{{post.date_updated}}</p>
+           {% if post.image %}
+          <img src="{{post.image.url}}" style="width:100%">
+          {% endif %}
+          <p>{{post.category}}</p>
+          <p>{{post.venue}}</p>
+          <p>{{post.date}}</p>
+          <p>{{post.time}}</p>
+          <div class="w3-panel  w3-border w3-border-black">
+          <p>{{post.description}}</p>
+        </div>
+          <div align="right">
+            {% if user.is_authenticated and user == post.author %}
+ 
+  <a href="#" class="cancelbtn" data-toggle="modal" data-target="#myModal" >Invite</a>
+  <button type = "button" onclick="window.location.href='{% url 'editpost' post.id %}'" class="cancelbtn" > Edit</button>
+  <button type = "button" onclick="window.location.href='{% url 'archivepost' post.id %}'" class="cancelbtn" > Archive</button>
+  {%  endif %}
+<button type = "button" onclick="window.location.href='{% url 'post_details' post.id %}'" class="cancelbtn" > Details</button>
+
+</form>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close w3-hover-black" data-dismiss="modal">×</button>
+          <div align="left">
+          <h4>Invite Member</h4>
+        </div>
+        <div class="modal-body">
+          <form method = "POST" action = "{% url 'invite_email' post.id %}" >
+             {% csrf_token %}
+            <div class="form-group">
+              <div align="left">
+              <label for="psw"><span class="glyphicon glyphicon-envelope"></span>Email</label>
+              <input type="email" class="form-control" name="email" id="psw" placeholder="user@user.com">
+              </div>
+              <p></p>
+              <button type="submit" class="btn btn-block w3-hover-black">Invite</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    {% endfor %}
+   
+  </div>
+
+</div>
+</div>
+</body>
+</html>
