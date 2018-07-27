@@ -1,59 +1,44 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<title>BLOGSPOT</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {width: 120px;background: #222;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
-.cancelbtn {
-    background-color: gray;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 19.5%;
-    opacity: 0.9;
-}
-</style>
-<body class="w3-black">
-
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-
-
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h1 class="w3-text-light-grey">Sign In</h1>
-    <hr style="width:200px" class="w3-opacity">
-    <form method = "POST" action=" ">
-    	{% csrf_token %}
-    	<div class="w3-container w3-white" >
-	  	<div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border w3-border-black">
-    		{{form.as_p}} 
-    	<div align="right">
-    	<input type="submit"  id="id_submit" name='Signin' value="Signin" class="cancelbtn"> 
-    	<p>Don't have an account?  <a style="color:dodgerblue"> <a  href="{% url 'register' %}" >Register Now</a></p>
+<head>
+    <title> Log In </title>
     
-</div>
-    </div></div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	</form>
-   
-  </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#myPage">TRIP EVENT </a>
+            </div>
+        </div>
+    </nav>
 
-</div>
+    <div class="container">
+        <div class="box text-center">
+            <h1 class="reg">Log In</h1>
+            <form method="POST" action="  " class="registration-form">  
+            {% csrf_token %}   
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">  
+                        <input type="text" placeholder="Enter Email Address" id="id_email" name="email" required>
+
+                        <input type="password" placeholder="Enter Password" id="id_password" name="password" required> 
+
+                        <button type="submit" id="id_submit" name='Signin' value="Signin" class="btn registerbtn">LOG IN</button>
+
+                        <p class="exist">Dont have an account yet? <a class="account-reg" href="{% url 'register' %}">Sign Up</a>.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
-</html>
+</html>                             

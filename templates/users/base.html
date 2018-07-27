@@ -1,105 +1,85 @@
 {% load static %}
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html>
 <head>
+    <title> Welcome </title>
+    
+  <link rel="stylesheet" type="text/css" href="css/ionicons-2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>BLOGSPOT</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-
-    <!-- script
-    ================================================== -->
-    <script src="{% static 'js/modernizr.js' %}"></script>
-    <script src="{% static 'js/pace.min.js' %}"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="{% static favicon.ico %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
 </head>
-
-<body id="top">
-
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <nav class="header-nav">
-
-            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
-
-            
-
-        <a class="header-menu-toggle" href="#0">
-            <span class="header-menu-icon"></span>
-        </a>
-
-    </header> <!-- end s-header -->
-
-
-    <!-- home
-    ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=top>
-
-        <div class="shadow-overlay"></div>
-
-        <div class="home-content">
-
-            <div class="row home-content__main">
-                <h1>
-                Share to everyone your ideas and experience<br>
-                </h1>
-
-                <p>
-                Discover some blogs<br>
-                </p>
-            </div> <!-- end home-content__main -->
-
-        </div> <!-- end home-content -->
-
-        <ul class="home-sidelinks">
-            <li><a class="smoothscroll" href="{% url 'register' %}">Register<span>Don't have an account</span></a></li>
-            <li><a class="smoothscroll" href="{% url 'signin' %}">Log In<span>Create blogs!</span></a></li>
-        </ul> <!-- end home-sidelinks -->
-    </section> <!-- end s-home -->
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader">            
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1">
+      <div class="navbar-header icon-name">
+        <img class="img-circle" href="#myPage" src="logo.png" width="84px" height="73px">
+      </div>
+    </div>
+    <div class="col-md-7">
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-left">
+            <form class="search-form">
+              <input type="text" name="search" type="submit" class="search-bar" placeholder="Search..">
+            </form>
+          </ul>
         </div>
     </div>
+    <div class="col-md-4 reg-log">
+      <button type="button" class="btn register-btn" onclick="window.location.href='{% url 'register' %}'">Register</button>
+      <button type="button" class="btn login-btn" onclick="window.location.href='{% url 'signin' %}'">Log In</button>
+    </div>
+      </div>
+    </div>
+  </nav>
 
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/plugins.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+<!-- All Events -->
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="all">All Events</h1>
 
-  gtag('config', 'UA-23581568-13');
-</script>
+      <section class="all-events">
+
+        <div class="row">
+          <div class="col-md-7">
+            <h2 class="title"><b>Elyxion</b></h2>
+
+            <p class="time-date">July 28, 2018 | 4:00 PM</p>
+            <p class="location">Bansalan</p>
+            <p class="event-description truncate">London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.
+
+            Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+            <span class="icon ion-ios-people"> 34 going</span>
+            <p class="created"> Create by: Karla Nadhine</p>
+          </div>
+          <div class="col-md-5 text-right ">
+            <img src="https://marketplace.canva.com/MACcZqwhNdE/3/0/thumbnail_large/canva-blue-green-festival-event-poster-MACcZqwhNdE.jpg" class="poster" width="212" height="237">
+<!--             <div class="invite-join">
+              <button type="button" class="btn invite-btn">Invite</button>
+              <button type="button" class="btn join-btn">Join</button>
+            </div> -->
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
-
 </html>

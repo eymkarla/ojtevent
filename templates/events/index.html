@@ -1,150 +1,267 @@
 {% load static %}
+
 <!DOCTYPE html>
+
 <html>
-<title>BLOGSPOT</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+
+  <title> Dashboard </title>
+
+  
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons-2.0.1/css/ionicons.min.css' %}">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {width: 120px;background: #222;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
-.cancelbtn {
-    background-color: gray;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 19.5%;
-    opacity: 0.9;
-}
-</style>
-<body class="w3-black">
-
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  {% if user.image %}
-  <img src="{{user.image.url}}" style="width:100%">
-  {% endif %} 
- 
-  <a href="{% url 'index' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>Home</p>
-  </a>
-  <a href="{% url 'profile' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>Profile</p>
-  </a>
-  <a href="{% url 'archivelist' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-archive w3-xxlarge"></i>
-    <p>Archive</p>
-  </a>
-  <a href="{% url 'accountsettings' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-cog w3-xxlarge"></i>
-    <p>SETTINGS</p>
-  </a>
-  <a href="{% url 'welcome' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-arrow-left w3-xxlarge"></i>
-    <p></p>
-  </a>
-</nav>
 
 
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
 
- 
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h1 class="w3-text-light-grey">All Posts</h1>
-    <hr style="width:200px" class="w3-opacity">
-    <div class = "col">
-      <form action="{% url 'search' %}" method = "GET">
- 
- <input type="text" name="q" >
- <input type="submit" value="Search">   
-</form><p></p>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
- 
 
-    <form method = "POST" action=" ">
-      {% csrf_token %}
-      
-         {% for post in posts %}
-          <div class="w3-container w3-white" >
-          <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border w3-border-black">
-          <h2><b>{{post.title}}</b></h2>
-          <a href="#">{{post.author}}</a>
-          <p>{{post.date_updated}}</p>
-           {% if post.image %}
-          <img src="{{post.image.url}}" style="width:100%">
-          {% endif %}
-          <p>{{post.category}}</p>
-          <p>{{post.venue}}</p>
-          <p>{{post.date}}</p>
-          <p>{{post.time}}</p>
-          <div class="w3-panel  w3-border w3-border-black">
-          <p>{{post.description}}</p>
-        </div>
-          <div align="right">
-            {% if user.is_authenticated and user == post.author %}
- 
-  <a href="#" class="cancelbtn" data-toggle="modal" data-target="#myModal" >Invite</a>
-  <button type = "button" onclick="window.location.href='{% url 'editpost' post.id %}'" class="cancelbtn" > Edit</button>
-  <button type = "button" onclick="window.location.href='{% url 'archivepost' post.id %}'" class="cancelbtn" > Archive</button>
-  {%  endif %}
-<button type = "button" onclick="window.location.href='{% url 'post_details' post.id %}'" class="cancelbtn" > Details</button>
 
-</form>
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close w3-hover-black" data-dismiss="modal">×</button>
-          <div align="left">
-          <h4>Invite Member</h4>
-        </div>
-        <div class="modal-body">
-          <form method = "POST" action = "{% url 'invite_email' post.id %}" >
-             {% csrf_token %}
-            <div class="form-group">
-              <div align="left">
-              <label for="psw"><span class="glyphicon glyphicon-envelope"></span>Email</label>
-              <input type="email" class="form-control" name="email" id="psw" placeholder="user@user.com">
-              </div>
-              <p></p>
-              <button type="submit" class="btn btn-block w3-hover-black">Invite</button>
-            </div>
-          </form>
-        </div>
+</head>
+
+<body>  
+
+  <nav class="navbar">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-1">
+
+      <div class="navbar-header icon-name">
+
+        <img class="img-circle" href="#myPage" src="logo.png" width="84px" height="73px">
+
       </div>
+
     </div>
-  </div>
-</div>
-</div>
-</div>
-    {% endfor %}
-   
+
+    <div class="col-md-6">
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+
+          <ul class="nav navbar-nav navbar-left">
+
+            <form action="{% url 'search' %}" method="GET" class="search-form">
+
+              <input type="text" name="search" type="submit" value="Search" class="search-bar" placeholder="Search..">
+
+            </form>
+
+          </ul>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-2 center-block">
+
+      <button type="button" class="btn createbtn" onclick="window.location.href='{% url 'createpost' %}'"><i class=" icon ion-ios-plus-empty"></i>Create Event</button>
+
+    </div>
+
+    <div class="col-md-3 user-profile">
+
+      <span class="dropdown-toggle"></span>
+
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+            <img class="img-circle person" href="#myPage" src="https://pbs.twimg.com/profile_images/1021832877917405185/LjKFmHtR_400x400.jpg" width="37px" height="34px">Hi,{{request.user.first_name}}
+
+          <span class="caret"></span></a>
+
+          <ul class="dropdown-menu drop">
+
+            <li><a href="{% url 'index' %}">Home</a></li>
+
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+
+            <li><a href="{% url 'archivelist' %}">Archive</a></li>
+
+            <li><a href="{% url 'accountsettings' %}">Account Settings</a></li>
+
+            <li><a href="{% url 'welcome' %}">Logout</a></li> 
+
+          </ul>
+
+        </li>
+
+    </div>
+
+      </div>
+
+    </div>
+
+  </nav>  
+
+
+
+<!-- All Events -->
+
+
+
+ <div class="container">
+
+  <div class="row">
+
+    <div class="col-md-8">
+
+      <h1 class="all">All Events</h1>
+
+      <form method="POST" action=" ">
+
+         {% csrf_token %}
+
+      
+
+         {% for post in posts %}
+
+
+
+        <section class="all-events">
+
+      
+
+      <div class="row">
+
+        <div class="col-md-7">
+
+          <a href="#" class="title"><b>{{post.title}}</b></a>
+
+
+
+          <p class="time-date">{{post.date_updated}} | {{post.time}}</p>
+
+          <p class="location">{{post.venuel}}</p>
+
+          <p class="event-description truncate">{{post.description}}</p>
+
+          <span class="icon ion-ios-people"> 34 going</span>
+
+          <p class="created"> Create by: {{post.author}}</p>
+
+        </div>
+
+        <div class="col-md-5 text-right ">
+
+          {% if post.image %}
+
+          <img src="{{post.image.url}}" class="poster" width="212" height="237">
+
+          {% endif %}
+
+          <div class="invite-join">
+
+            {% if user.is_authenticated and user == post.author %}
+
+            <button type="button" class="btn invite-btn" data-toggle="modal" data-target="#invite">Invite</button>
+
+            {%  endif %}
+
+            <button type="submit" class="btn join-btn">Join</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+      </form>
+      <!-- Invite Modal -->
+
+<div class="modal fade" id="invite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h4 class="modal-title" id="exampleModalLabel">Invite</h4>
+
+      </div>
+
+      <div class="modal-body">
+
+        <form method="POST" action="{% url 'invite_email' post.id %}">
+
+          {% csrf_token %}
+
+          <div class="form-group">
+
+            <label for="invite-email" class="control-label">Email:</label>
+
+            <input type="email" class="form-control" id="recipient-email" placeholder="user@user.com">
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="submit" class="btn btn-primary">Invite</button>
+
+      </div>
+
+    </div>
+
   </div>
 
+  </div>
 </div>
-</div>
+
+   {% endfor %}
+
+    <div class="col-md-4">
+
+      <h1 class="upcoming">Upcoming Events</h1>
+
+      <div class="row">
+
+        <div class="col-md-12 upcoming-event">
+
+          <ul class="joined list-unstyled">
+
+            <li> <a href="#" class="mytitle">{{post.title}}</a></li>
+
+            <li class="icon ion-ios-clock-outline"> {{post.date_updated}} | {{post.time}} </li>
+
+            <li class="icon ion-ios-location">{{post.venuel}}</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  </div>
+ 
+ 
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
 </body>
+
 </html>

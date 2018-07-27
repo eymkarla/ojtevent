@@ -116,11 +116,12 @@ def invite_email(request, event_id):
 def accept_invite(request, token):
       invite = get_object_or_404(Invite, token=token)
       if not invite.is_tokened:
-          invite.is_tokened = True
-          invite.save()
+          
           user = User.objects.filter(email=invite.email)
           if user.exists():
               _create_event_member(user[0], invite.event)
+              invite.is_tokened = True
+              invite.save()
               login(request, user[0])
               return redirect( 'post_details', invite.event.id)
           else:
@@ -132,7 +133,8 @@ def accept_invite(request, token):
                       email = form.cleaned_data['email']
                       member = form.save()
                       _create_event_member(member, invite.event)
-
+                      invite.is_tokened = True
+                      invite.save()
                       user = authenticate(email=email, password=password)
 
                       if user is not None:

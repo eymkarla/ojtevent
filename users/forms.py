@@ -7,7 +7,7 @@ from .models import User
 class UserForm(forms.ModelForm):
     class Meta:
          model = User
-         fields = ['email','first_name','last_name','password']
+         fields = ['email','first_name','last_name', 'password']
 
     def save(self, commit=True):
         email = self.cleaned_data.get('email')

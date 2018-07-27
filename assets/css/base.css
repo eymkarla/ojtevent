@@ -1,0 +1,873 @@
+body {
+	background: #FCFCFC
+}
+
+.navbar {
+ 	width: 1440px, auto;
+ 	height: 70px;
+ 	background-color: #ffffff;
+ 	box-shadow: 0 3px 6px 0 rgba(168, 179, 222, 0.16);
+ }
+
+.box {
+  width: 675px;
+  border-radius: 14px;
+  box-shadow: 0 10px 20px 0 rgba(139, 109, 109, 0.16);
+  background-color: #ffffff;
+  border: solid 2px #e6e5e5;
+  margin: 0 auto;
+  padding: 48px 0 41px 0;
+  margin-top: 120px;
+  margin-bottom: 140px;
+}
+
+.reg {
+  font-family: HiraKakuPro-W3;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.04;
+  letter-spacing: normal;
+  text-align: center;
+  color: #050505;
+  margin-bottom: 33px;
+}
+
+#id_email {
+  width: 411px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  border: solid 1px #707070;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#id_first_name {
+  width: 411px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  border: solid 1px #707070;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#id_last_name {
+  width: 411px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  border: solid 1px #707070;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#id_password {
+  width: 411px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  border: solid 1px #707070;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#id_confirm_password {
+  width: 411px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  border: solid 1px #707070;
+  text-align: center;
+}
+
+.registerbtn {
+  width: 193px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #000000;
+  border: solid 1px #707070;
+  color: #fff;
+  margin-top: 35px;
+}
+
+.registerbtn:hover {
+	color: #fff;
+}
+
+.createbtn {
+	margin: 17px 50px 19px 13px;
+	width: 140px;
+	height: 34px;
+	border-radius: 17px;
+	border: solid 1px #025da0;
+  	opacity: 0.92;
+  	font-family: HelveticaNeue;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0;
+    letter-spacing: normal;
+    text-align: center;
+    color: #025da0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ion-ios-plus-empty {
+	font-size: 20px;
+	margin-right: 5px;	
+}
+
+p {
+	margin-top: 10px;
+}
+
+.registration-form input::placeholder {
+	color: lightgray;
+}
+
+ }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+
+.search-bar {
+    width: 500px;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 16px;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    background-color: #f8f8f8;
+  	border: solid 1px #fcfcfc;
+    padding: 12px 20px 12px 40px;
+    margin: 13px 0 8px 0;
+}
+
+
+.person {
+  opacity: 0.8;
+  border: 1px solid #000;
+  margin-right: 5px;
+
+}
+.open .dropdown-toggle {
+      color: #337ab7;
+      background-color: #fff !important;
+}
+
+nav li a {
+	padding: 20px, 15px;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+	background-color: #fff;
+}
+  
+.dropdown-menu li a {
+	color: #000 !important;
+  font-size: 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f2f2f2 !important;
+}
+
+/*a {
+	margin: 8px 60px 8px 55px;
+} */
+
+.drop {
+	margin-right: 64px;
+}
+
+.create {
+  font-family: HiraKakuPro-W3;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-left: 15px;
+  margin-top: 40px;
+}
+
+.box-form {
+  width: 884px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px 0 rgba(173, 161, 161, 0.16);
+  margin-top: 40px;
+  margin-bottom: 60px;
+  padding: 56.2px 50px 36.5px 40px;
+}
+
+.event {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+}
+
+#eventname {
+  width: 100%;
+  height: 37px;
+  background-color: #ffffff;
+  border: solid 1px #1a1919;
+  padding-left: 15px;
+}
+
+
+.photo {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-top: 30px;
+}
+
+#uploadimg {
+	font-size: 14px;
+	margin-top: 40px;
+	
+}
+
+
+.place {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-top: 27px;
+}
+
+#venue {
+  width: 100%;
+  height: 37px;
+  background-color: #ffffff;
+  border: solid 1px #1a1919;
+  margin-top: 25px;
+  padding-left: 15px;
+}
+
+.clock {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-top: 30px;
+}
+
+#time {
+  width: 100%;
+  height: 37px;
+  background-color: #ffffff;
+  border: solid 1px #1a1919;
+  padding-left: 15px;
+  margin-top: 32px;
+}
+
+.when {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-top: 30px;
+}
+
+#date {
+  width: 100%;
+  height: 37px;
+  background-color: #ffffff;
+  border: solid 1px #1a1919;
+  padding-left: 15px;
+  margin-top: 35px;
+}
+
+
+.content {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-top: 30px;
+}
+
+#description {
+  width: 100%;
+  height: 250px;
+  background-color: #ffffff;
+  border: solid 1px #1a1919;
+  margin-top: 35px;
+  padding-left: 15px;
+}
+
+.eventbtn {
+  width: 129px;
+  height: 48px;
+  border-radius: 6px;
+  background-color: #77c6ff;
+  border: solid 1px #ffffff;
+  margin-left: 660px;
+  margin-top: 41px;
+  color: #fff;
+}
+
+.eventbtn:hover {
+	color: #fff;
+}
+
+
+.box-acc-form {
+  width: 805px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px 0 rgba(173, 161, 161, 0.16);
+  margin-top: 40px;
+  margin-bottom: 60px;  
+  padding: 56.2px 50px 36.5px 40px;
+}
+
+.backbtn {
+  width: 129px;
+  height: 48px;
+  border-radius: 6px;
+  background-color: #f45551;
+  color: #fff;
+  margin-right: 30px;
+}
+
+.backbtn:hover {
+  color: #fff;
+}
+
+.update-btn {
+  width: 129px;
+  height: 48px;
+  border-radius: 6px;
+  background-color: #74c3fc;
+  color: #fff;
+}
+
+.update-btn:hover {
+  color: #fff;
+}
+
+.a-btn {
+  width: 129px;
+  height: 48px;
+  border-radius: 6px;
+  background-color: #f45551;
+  color: #fff;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.a-btn:hover {
+  color: #fff;
+}
+
+.changepass {
+  font-family: HiraKakuPro-W3;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin: -20px 0 30px 0;
+}
+
+.change-btn {
+  width: 129px;
+  height: 48px;
+  border-radius: 6px;
+  background-color: #74c3fc;
+  color: #fff;
+}
+
+.change-btn:hover {
+  color: #fff;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.back-btn {
+  width: 129px;
+  height: 48px;
+  border-radius: 6px;
+  background-color: #f45551;
+  color: #fff;
+  margin-right: 30px;
+}
+
+.back-btn:hover {
+  color: #fff;
+}
+
+.password-label a{
+  margin: 0;
+}
+
+.button-btn {
+  margin-top: 40px;
+  margin-left: 422px;
+}
+
+.all{
+  font-family: HiraKakuPro-W3;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-left: 15px;
+  margin-top: 40px;
+}
+
+.all-events {
+  height: 410px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px 0 rgba(168, 179, 222, 0.16);
+  margin-top: 38px;
+  padding: 43px 37px;
+}
+
+.title {
+  font-family: HiraKakuPro-W3;
+  font-size: 18px;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin: 0;
+}
+
+.time-date {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.19;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-top: 44px;
+}
+
+.location {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.19;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-top: 21px;
+}
+
+.truncate {
+  width: 342px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 43px;
+  margin-bottom: 60px;
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+}
+
+.ion-ios-people {
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #a7a6a6;
+}
+
+.created {
+  font-family: MalayalamSangamMN;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #76818d;
+}
+
+.invite-btn {
+  width: 100px;
+  height: 32px;
+  background-color: #59d6c6;
+  border-radius: 2px;
+  color: #fff;
+  margin-right: 9px;
+}
+
+.join-btn {
+  width: 100px;
+  height: 32px;
+  background-color: #00aeef;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.invite-join {
+  margin-top: 41px;
+}
+
+.invite-btn:hover, .join-btn:hover, .register-btn:hover, .login-btn:hover {
+  color: #ffff;
+}
+
+.reg-log, .icon-icon {
+  margin-top: 17px;
+}
+
+.register-btn {
+  width: 140px;
+  height: 34px;
+  border-radius: 17px;
+  background-color: #16aaff;
+  color: #fff;
+  margin-right: 21px;
+}
+
+.login-btn {
+  width: 140px;
+  height: 34px;
+  border-radius: 17px;
+  background-color: #0fe1b2;
+  color: #fff;
+}
+
+.user-profile {
+    height: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+}
+
+.account-reg {
+  margin:8px 60px 8px 0px;
+}
+
+.exist {
+  padding-left: 67px;
+}
+
+.upcoming {
+    font-family: HiraKakuPro-W3;
+    font-size: 25px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #6f7587;
+    margin-left: 15px;
+    margin-top: 40px;
+}
+
+.upcoming-event {
+  width: 333px;
+  height: 365.2px;
+  margin-top: 65px;
+  margin-left: 25px;
+  box-shadow: 0 5px 10px 0 rgba(144, 131, 131, 0.16);
+  background-color: #ffffff;
+  border: solid 1px #dbdbdb;
+}
+
+
+.joined {
+  width: 300px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 5px 5px 0 rgba(204, 198, 198, 0.16);
+}
+
+.joined li {
+  padding-left: 13px;
+  margin-bottom: 10px;
+}
+.mytitle {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  color: #565961;
+  margin-top: 15px;
+}
+
+.ion-ios-plus-location {
+  font-size: 20px;
+  margin-right: 5px;  
+}
+
+.event-invite {
+  margin-right: 0px;
+}
+
+.pending {
+  font-size: 26px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.92;
+  letter-spacing: normal;
+  text-align: left;
+  color: #9b9faa;
+  margin-bottom: 30px;
+}
+
+.all-pending {
+  /*width: 857px;*/
+  height: 81px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px 0 rgba(168, 179, 222, 0.16);
+}
+
+.karla-row {
+  margin-bottom: 10px;
+}
+
+.accept-btn {
+  height: 31px;
+  border-radius: 13px;
+  background-color: #59d6c6;
+  font-family: MalayalamSangamMN;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #4a4a4a;
+}
+
+.decline-btn {
+  height: 31px;
+  border-radius: 13px;
+  background-color: #f75f4e;
+  font-family: MalayalamSangamMN;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #fff;
+}
+
+.user-request {
+    height: 90px;
+    display: flex;
+    margin-left: 34px;
+    align-items: center;
+}
+
+.searched {
+  font-family: MalayalamSangamMN;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6f7587;
+  margin-top: 70px;
+}
+
+.post {
+  font-family: MalayalamSangamMN;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 5;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.search-item {
+  width: 755px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px 0 rgba(168, 179, 222, 0.16);
+  padding: 25px;
+}
+
+.search-title {
+  font-family: MalayalamSangamMN;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  height: 70px;
+  display: flex;
+  margin-left: 34px;
+  align-items: center;
+}
+.search-description {
+  text-align: left;
+  color: #6f7587;
+  display: flex;
+  margin-left: 34px;
+  margin-right: 34px;
+  align-items: center;
+}
+
+.profile-wrapper {
+  width: 100%;
+  height: 895px;
+  box-shadow: 2px 3px 8px 0 rgba(162, 155, 155, 0.16);
+  background-color: #ffffff;
+  border: solid 1px #d9d5d5;
+  margin-top: 113px;
+}
+
+.profile-name {
+  font-family: MalayalamSangamMN;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #6f7587;
+}
+
+.profile-photo {
+  position: relative;
+  bottom: 92px;
+}
+
+.profile-person {
+  border: 1px solid #dddddd;
+  margin-right: 5px;
+}
+.prof-photo {
+  margin-top: 30px;
+}
+
+.profile-events {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.profile-event {
+  font-family: HiraKakuPro-W3;
+  font-size: 16px;
+  color: #6f7587;
+}
+
+.archive, .edit {
+  font-family: HiraKakuPro-W3;
+  font-size: 14px;
+  color: #6f7587;
+}
+.archive, .edit {
+  border: 0px;
+  margin-right: 20px;
+}
+
+.archive-icon, .edit-icon {
+  margin-left: 10px;
+  font-size: 17px;
+}
+.email-icon{
+  margin-right: 14px;
+  font-size: 18px;
+}
+.archive-edit {
+  margin-top: 20px;
+}
+
+.my {
+  font-family: HiraKakuPro-W3;
+  font-size: 24px;
+  color: #6f7587;
+  margin-left: 70px;
+}
+
+.icon-email {
+  font-size: 16px;
+}
+
+.modal-title {
+    font-size: 23px;
+}
+
+.icon-name {
+    height: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+}
+
+.image-icon {
+  
+}
